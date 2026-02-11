@@ -18,6 +18,10 @@ def start(msg: Message):
     bot.register_next_step_handler(msg, magicball)
     print(msg.chat.id)
 
+@bot.message_handler(['info'])
+def info(msg: Message):
+    bot.send_message(msg.chat.id, "Магазин Эзотерики - это телеграм бот, предлагающий множество товаров по теме Эзотерической сферы. ")
+
 def magicball(msg: Message):
     if msg.text == "Магический шар":
         bot.send_message(msg.chat.id, "Задавайте свой вопрос.")
